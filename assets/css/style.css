@@ -846,6 +846,8 @@ main {
   align-items: center;
   gap: 5px;
   margin-bottom: 8px;
+  padding-right: 1rem;
+
 }
 
 .skill .title-wrapper data {
