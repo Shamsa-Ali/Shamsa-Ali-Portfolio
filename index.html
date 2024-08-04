@@ -154,7 +154,17 @@
           </li>
 
         </ul>
+        <div class="separator"></div>
 
+        
+
+        <div class="contact-info" style="display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;">
+          <p class="contact-title">Website visit count:</p>
+          <div class="website-counter project-para" ></div>
+          <!-- <button class="button" id="reset">Reset</button> -->
+        </div>
       </div>
 
     </aside>
@@ -1234,7 +1244,28 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+  var counterContainer = document.querySelector(".website-counter");
+var resetButton = document.querySelector("#reset");
+var visitCount = localStorage.getItem("page_view");
 
+// Check if page_view entry is present
+if (visitCount) {
+  visitCount = Number(visitCount) + 1;
+  localStorage.setItem("page_view", visitCount);
+} else {
+  visitCount = 1;
+  localStorage.setItem("page_view", 1);
+}
+counterContainer.innerHTML = visitCount;
+
+// Adding onClick event listener
+resetButton.addEventListener("click", () => {
+  visitCount = 1;
+  localStorage.setItem("page_view", 1);
+  counterContainer.innerHTML = visitCount;
+});
+</script>
 </body>
 
 </html>
